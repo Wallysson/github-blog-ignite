@@ -4,7 +4,7 @@ export const ProfileContainer = styled.div`
   background: ${props => props.theme['base-profile']};
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
   border-radius: 0.625rem;
-  margin-top: -4rem;
+  margin-top: -5rem;
   padding: 2rem 2.5rem;
   display: flex;
   gap: 2rem;
