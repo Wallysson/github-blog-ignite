@@ -3,20 +3,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faBuilding, faUserGroup } from "@fortawesome/free-solid-svg-icons";
 
-export function SocialLinks() {
+interface SocialLinksProps {
+  login: string
+  company?: string
+  followers: number
+}
+
+export function SocialLinks({login, company, followers}: SocialLinksProps) {
   return (
     <SocialLinksContainer>
       <li>
         <FontAwesomeIcon icon={faGithub} />
-          sonsonlima
+          {login}
       </li>
       <li>
           <FontAwesomeIcon icon={faBuilding} />
-          CEL-Consultoria
+          {company}
       </li>
       <li>
           <FontAwesomeIcon icon={faUserGroup} />
-          32 seguidores
+          {followers} seguidores
       </li>
   </SocialLinksContainer>
   )

@@ -1,21 +1,49 @@
+import { useCallback, useEffect, useState } from "react";
+import { api } from "../../lib/axios";
 import { ExternalLink } from "../ExternalLink";
 import { SocialLinks } from "../SocialLinks";
 import { ProfileAvatar, ProfileContainer, ProfileInfo } from "./styles";
 
+const username = 'Wallysson'
+
+interface ProfileData {
+  name: string
+  html_url: string
+  bio: string
+  avatar_url: string
+  login: string
+  company: string
+  followers: number
+}
+
+
 export function Profile() {
+  const [profileData, setProfileData] = useState<ProfileData>({} as ProfileData)
+
+  const fetchProfileData = useCallback(async () => {
+    const response = await api.get(`users/${username}`)
+    setProfileData(response.data)
+  }, [])
+
+  useEffect(() => {
+    fetchProfileData()
+  })
+
+  console.log(profileData)
+
   return (
     <ProfileContainer>
-      <ProfileAvatar src="https://avatars.githubusercontent.com/u/50278324?v=4"/>
+      <ProfileAvatar src={profileData.avatar_url}/>
       <ProfileInfo>
         <header>
-          <h1>Cameron William</h1>
-          <ExternalLink text="Github" href="https://ge.globo.com/" target="_blank"/>
+          <h1>{profileData.name}</h1>
+          <ExternalLink text="Github" href={profileData.html_url} target="_blank"/>
         </header>
         <p>
-          Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat pulvinar vel mass.
+          {profileData.bio}
         </p>
 
-        <SocialLinks />
+        <SocialLinks login={profileData.login} company={profileData.company} followers={profileData.followers}/>
       </ProfileInfo>
     </ProfileContainer>
   )
