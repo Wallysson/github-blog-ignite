@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const SocialLinksContainer = styled.u`
+export const SocialLinkPublicationContainer = styled.u`
   display: flex;
   align-items: center;
   text-decoration: none;

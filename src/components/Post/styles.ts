@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const PostContainer = styled.div`
+export const PostContainer = styled(Link)`
   width: 100%;
   height: 16.25rem;
   background: ${props => props.theme['base-post']};
@@ -8,6 +9,7 @@ export const PostContainer = styled.div`
   border: 2px solid ${props => props.theme['base-post']};
   padding: 2rem;
   cursor: pointer;
+  text-decoration: none;
 
   &:hover {
     border-color: ${props => props.theme['base-label']};
@@ -27,6 +29,9 @@ export const PostContainer = styled.div`
       color: ${props => props.theme['base-title']};
       text-overflow: ellipsis;
       overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
     }
 
     span {
@@ -43,5 +48,7 @@ export const PostContainer = styled.div`
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;
     text-align: justify;
+    color: ${props => props.theme['base-text']};
+
   }
 `

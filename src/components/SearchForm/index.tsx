@@ -9,20 +9,25 @@ const searchFormScheme = zod.object({
 
 type SearchFormInputs = zod.infer<typeof searchFormScheme>
 
-export function SearchForm() {
+interface SearchFormProps {
+  postsLength: number
+  fetchPosts: (query?: string) => Promise<void>
+}
+
+export function SearchForm({postsLength, fetchPosts}: SearchFormProps) {
   const {register, handleSubmit} = useForm<SearchFormInputs>({
     resolver: zodResolver(searchFormScheme)
   })
 
-  function handleSearchPost() {
-
+  async function handleSearchPost(data: SearchFormInputs) {
+    await fetchPosts(data.query)
   }
 
   return (
     <SearchFormContainer onSubmit={handleSubmit(handleSearchPost)}>
       <header>
         <strong>Publicações</strong>
-        <span>7 publicações</span>
+        <span>{postsLength} publicações</span>
       </header>
 
       <input 

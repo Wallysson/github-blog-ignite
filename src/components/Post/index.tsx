@@ -10,7 +10,7 @@ export function Post({ post }: PostProps) {
   const formattedDate = PublicationPeriodFormatter(post.created_at)
 
   return (
-    <PostContainer>
+    <PostContainer to={`/publication/${post.number}`} >
       <header>
         <strong>{post.title}</strong>
         <span>{formattedDate}</span>

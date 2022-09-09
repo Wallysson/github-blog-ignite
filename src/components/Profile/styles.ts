@@ -30,12 +30,14 @@ export const ProfileInfo = styled.div`
       font-weight: 700;
       font-size: 1.5rem;
       line-height: 130%;
-      color: ${props => props.theme['base-title']}
+      color: ${props => props.theme['base-title']};
     }
   }
 
   p {
     text-align: justify;
+    margin-bottom: 2rem;
+
   }
 `
 
