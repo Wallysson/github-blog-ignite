@@ -23,13 +23,11 @@ export function Profile() {
   const fetchProfileData = useCallback(async () => {
     const response = await api.get(`users/${username}`)
     setProfileData(response.data)
-  }, [])
+  }, [profileData])
 
   useEffect(() => {
     fetchProfileData()
-  })
-
-  console.log(profileData)
+  }, [])
 
   return (
     <ProfileContainer>

@@ -12,3 +12,7 @@ export const PostListContainer = styled.div`
   margin-bottom: 5rem;
 `
 
+export const EmptyPost = styled.p`
+  text-align: center;
+  color: ${props => props.theme['blue']}
+`

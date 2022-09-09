@@ -5,7 +5,6 @@ import { ExternalLinkContainer } from "./styles";
 
 type ExternalLinkProps = ComponentProps<typeof ExternalLinkContainer> & {
   text: string;
-  variant?: "iconLeft";
 };
 
 export function ExternalLink({text, ...rest}: ExternalLinkProps) {
