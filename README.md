@@ -38,4 +38,4 @@ Os usuários podem clicar em uma issue específica para ver informações mais d
 
 | Home Blog Github                             | Detalhe                                        |
 | -------------------------------------------- | ---------------------------------------------- |
-| <img src=".src/assets/HomeGithubBlog.PNG" /> | <img src=".src/assets/DetailGithubBlog.PNG" /> |
+| <img src="src/assets/HomeGithubBlog.PNG" /> | <img src="src/assets/DetailGithubBlog.PNG" /> |
